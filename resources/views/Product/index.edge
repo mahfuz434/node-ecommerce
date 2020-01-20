@@ -1,0 +1,14 @@
+@layout('layouts.leftSidebar')
+
+@section('page-content')
+    @include('partials._slider')
+    
+    <div class="row">
+        @!component('components.product')
+        @!component('components.product')
+        @!component('components.product')
+        @!component('components.product')
+        @!component('components.product')
+    </div>
+
+@endsection

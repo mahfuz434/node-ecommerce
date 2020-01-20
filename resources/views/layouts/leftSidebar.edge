@@ -21,7 +21,16 @@
   <body>
     @include('partials._nav')
 
-    @!section('page-content')
+    <div class="container">
+      <div class="row">
+        @include('partials._sidebar')
+        <div class="col-lg-9">
+          <div class="row">
+              @!section('page-content')
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="py-5 bg-dark">
       <div class="container">

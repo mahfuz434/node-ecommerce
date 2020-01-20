@@ -1,0 +1,42 @@
+@layout('layouts.admin')
+
+@section('page-content')
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+            <h1>Products list</h1>
+        
+            <a class="btn btn-primary btn-sm" href="{{ route('products.create') }}">Add new</a>
+            <br>
+
+            
+              <table class="table">
+                <tr>
+                    <th>Id</th>
+                    <th>name</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+                @each(product in products.toJSON())
+                  <tr>
+                      <td>{{ product.id }}</td>
+                      <td>{{ product.name }}</td>
+                      <td>
+                        <img width="80" src="{{ product.image }}" alt="{{ product.name }}">
+                      </td>
+                      <td>{{ product.price }}</td>
+                      <td>
+                        <form action="{{ route('products.destroy' , { id: product.id }) }}?_method=DELETE" method="POST">
+                          {{ csrfField() }}
+                          <button>Delete</button>
+                        </form>
+                        <a class="btn btn-primary" href="{{ route('products.edit' , { id: product.id }) }}">Edit</a>
+                      </td>
+                  </tr>
+                @endeach
+            </table>
+          </div>
+      </div>
+  </div>
+@endsection

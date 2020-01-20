@@ -19,9 +19,27 @@
   </head>
 
   <body>
-    @include('partials._nav')
+    @include('partials._admin-nav')
 
-    @!section('page-content')
+    <div class="container">
+      <div class="row">
+        
+        
+        <div class="col-lg-3">
+            <div class="list-group">
+                <a href="{{ route('products.index') }}" class="list-group-item">Products</a>
+                <a href="#" class="list-group-item">Orders</a>
+            </div>
+        </div>
+
+
+        <div class="col-lg-9">
+          <div class="row">
+              @!section('page-content')
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="py-5 bg-dark">
       <div class="container">
